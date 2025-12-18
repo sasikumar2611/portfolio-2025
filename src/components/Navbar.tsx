@@ -61,7 +61,7 @@ const Navbar = () => {
           onClick={(e) => handleLinkClick(e, "#home")}
           className="text-2xl font-bold tracking-tighter hover:text-white/80 transition-colors z-50 relative"
         >
-          Portfolio<span className="text-blue-500">.</span>
+          Sasi's Portfolio<span className="text-blue-500">.</span>
         </a>
 
         {/* Desktop Menu */}

@@ -1,8 +1,32 @@
 import Section from '../components/Section';
 import { motion } from 'framer-motion';
 import { Send, Github, Linkedin, Mail } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 const Contact = () => {
+    const handleSubmit = async (e:any) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    formData.append("access_key", "15c20996-eadc-4323-b99a-24011c212079");
+    const loadingToast = toast.loading("Sending message...");
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+      toast.dismiss(loadingToast);
+      if (data.success) {
+        toast.success("Message sent successfully!");
+        e.target.reset();
+      } else {
+        toast.error("Something went wrong. Try again!");
+      }
+    } catch (err) {
+      toast.dismiss(loadingToast);
+      toast.error("Network error. Please try again later.");
+    }
+  };
   return (
     <Section id="contact" className="min-h-screen py-20 flex flex-col justify-center">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-6xl mx-auto w-full">
@@ -45,19 +69,20 @@ const Contact = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            onSubmit={handleSubmit}
             className="glass-card p-8 rounded-3xl space-y-6"
         >
             <div className="space-y-2">
                 <label className="text-sm font-bold uppercase tracking-wider text-gray-500">Name</label>
-                <input type="text" className="w-full bg-black/30 border border-white/10 rounded-lg p-4 focus:border-[var(--neon-cyan)] focus:outline-none transition-colors" placeholder="John Doe" />
+                <input type="text" name='name' required className="w-full bg-black/30 border border-white/10 rounded-lg p-4 focus:border-[var(--neon-cyan)] focus:outline-none transition-colors" placeholder="John Doe" />
             </div>
             <div className="space-y-2">
                 <label className="text-sm font-bold uppercase tracking-wider text-gray-500">Email</label>
-                <input type="email" className="w-full bg-black/30 border border-white/10 rounded-lg p-4 focus:border-[var(--neon-cyan)] focus:outline-none transition-colors" placeholder="john@example.com" />
+                <input type="email" name='email' required className="w-full bg-black/30 border border-white/10 rounded-lg p-4 focus:border-[var(--neon-cyan)] focus:outline-none transition-colors" placeholder="john@example.com" />
             </div>
             <div className="space-y-2">
                 <label className="text-sm font-bold uppercase tracking-wider text-gray-500">Message</label>
-                <textarea rows={4} className="w-full bg-black/30 border border-white/10 rounded-lg p-4 focus:border-[var(--neon-cyan)] focus:outline-none transition-colors" placeholder="Hello..." />
+                <textarea rows={4} required name='message' className="w-full bg-black/30 border border-white/10 rounded-lg p-4 focus:border-[var(--neon-cyan)] focus:outline-none transition-colors" placeholder="Hello..." />
             </div>
 
             <button type="submit" className="w-full btn-neon py-4 rounded-lg font-bold flex items-center justify-center gap-2 group">
