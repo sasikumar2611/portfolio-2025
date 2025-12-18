@@ -36,7 +36,7 @@ const About = () => {
                       I’m a frontend developer who enjoys building fast and scalable web applications. I like turning complex problems into clean, simple, and easy-to-use interfaces.
                   </p>
                   <p>
-                      With 3+ years of experience, I’ve worked with different teams and technologies. I focus on writing clean code and creating designs that feel smooth and intuitive for users.
+                      With 1.5+ years of experience, I’ve worked with different teams and technologies. I focus on writing clean code and creating designs that feel smooth and intuitive for users.
                   </p>
                   
                   <div className="pt-6">
