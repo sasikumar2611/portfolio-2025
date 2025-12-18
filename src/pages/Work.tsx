@@ -1,0 +1,98 @@
+import Section from '../components/Section';
+import { motion } from 'framer-motion';
+import { ExternalLink, Github } from 'lucide-react';
+
+const projects = [
+  {
+    title: "Portfolio 2025",
+    description: "A complete overhaul of a fashion retailer's online store, focusing on performance and user experience.",
+    tech: ["React", "Tailwind"],
+    image: "linear-gradient(to bottom right, #3b82f6, #8b5cf6)", // Replace with real image later
+    live: "#",
+    github: "#"
+  },
+  {
+    title: "Finance Dashboard",
+    description: "Real-time crypto and stock market tracking dashboard with interactive charts.",
+    tech: ["Next.js", "TypeScript", "Recharts", "Supabase"],
+    image: "linear-gradient(to bottom right, #f59e0b, #ef4444)",
+    live: "#",
+    github: "#"
+  },
+  {
+    title: "Portfolio 2023",
+    description: "My previous portfolio showcase featuring 3D interactions and WebGL effects.",
+    tech: ["Three.js", "React Three Fiber", "GSAP"],
+    image: "linear-gradient(to bottom right, #10b981, #06b6d4)",
+    live: "#",
+    github: "#"
+  }
+];
+
+const Work = () => {
+  return (
+    <Section id="work" className="min-h-screen py-20">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center mb-16"
+      >
+        <h2 className="text-4xl md:text-5xl font-bold mb-4">Featured <span className="text-neon">Projects</span></h2>
+        <p className="text-gray-400 max-w-2xl mx-auto">
+          A selection of projects that showcase my skills and passion for building.
+        </p>
+      </motion.div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project, index) => (
+            <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 transition-transform duration-300"
+            >
+                {/* Project Image */}
+                <div 
+                    className="h-48 w-full relative"
+                    style={{ background: project.image }}
+                >
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                    <h3 className="text-2xl font-bold mb-2 group-hover:text-neon transition-colors">{project.title}</h3>
+                    <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+                        {project.description}
+                    </p>
+                    
+                    {/* Tech Badges */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                        {project.tech.map(t => (
+                            <span key={t} className="text-xs font-medium px-2 py-1 rounded bg-white/5 border border-white/10 text-gray-300">
+                                {t}
+                            </span>
+                        ))}
+                    </div>
+
+                    {/* Actions */}
+                    <div className="flex gap-4">
+                        <a href={project.live} className="flex-1 btn-neon text-center py-2 rounded-lg text-sm font-bold flex items-center justify-center gap-2">
+                            <ExternalLink size={16} /> Live Demo
+                        </a>
+                        <a href={project.github} className="flex-1 py-2 rounded-lg border border-white/20 hover:bg-white/10 text-center text-sm font-bold transition-colors flex items-center justify-center gap-2">
+                            <Github size={16} /> GitHub
+                        </a>
+                    </div>
+                </div>
+            </motion.div>
+        ))}
+      </div>
+    </Section>
+  );
+};
+
+export default Work;
