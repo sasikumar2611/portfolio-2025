@@ -7,7 +7,7 @@ const projects = [
   {
     title: "Portfolio 2025",
     description:
-      "A complete overhaul of a fashion retailer's online store, focusing on performance and user experience.",
+      "A personal portfolio showcasing my frontend skills, projects, and experience.",
     tech: ["React", "Tailwind"],
     image: portfolio, // Replace with real image later
     live: "https://sasikportfolio.netlify.app",
