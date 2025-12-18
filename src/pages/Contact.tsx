@@ -74,15 +74,15 @@ const Contact = () => {
         >
             <div className="space-y-2">
                 <label className="text-sm font-bold uppercase tracking-wider text-gray-500">Name</label>
-                <input type="text" name='name' required className="w-full bg-black/30 border border-white/10 rounded-lg p-4 focus:border-[var(--neon-cyan)] focus:outline-none transition-colors" placeholder="John Doe" />
+                <input type="text" name='name' required className="w-full bg-black/30 border border-white/10 rounded-lg p-4 focus:border-[var(--neon-cyan)] focus:outline-none transition-colors" placeholder="Sasi kumar" />
             </div>
             <div className="space-y-2">
                 <label className="text-sm font-bold uppercase tracking-wider text-gray-500">Email</label>
-                <input type="email" name='email' required className="w-full bg-black/30 border border-white/10 rounded-lg p-4 focus:border-[var(--neon-cyan)] focus:outline-none transition-colors" placeholder="john@example.com" />
+                <input type="email" name='email' required className="w-full bg-black/30 border border-white/10 rounded-lg p-4 focus:border-[var(--neon-cyan)] focus:outline-none transition-colors" placeholder="sasi@example.com" />
             </div>
             <div className="space-y-2">
                 <label className="text-sm font-bold uppercase tracking-wider text-gray-500">Message</label>
-                <textarea rows={4} required name='message' className="w-full bg-black/30 border border-white/10 rounded-lg p-4 focus:border-[var(--neon-cyan)] focus:outline-none transition-colors" placeholder="Hello..." />
+                <textarea rows={4} required name='message' className="w-full bg-black/30 border border-white/10 rounded-lg p-4 focus:border-[var(--neon-cyan)] focus:outline-none transition-colors" placeholder="Hello sasi..." />
             </div>
 
             <button type="submit" className="w-full btn-neon py-4 rounded-lg font-bold flex items-center justify-center gap-2 group">
