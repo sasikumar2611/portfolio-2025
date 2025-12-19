@@ -2,6 +2,7 @@ import Section from "../components/Section";
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import portfolio from "../assets/portfolio.png";
+import shopyKart from "../assets/shopykart.png";
 
 const projects = [
   {
@@ -14,23 +15,15 @@ const projects = [
     github: "https://github.com/sasikumar2611/portfolio-2025",
   },
   {
-    title: "Finance Dashboard",
+    title: "Shopy kart",
     description:
       "Real-time crypto and stock market tracking dashboard with interactive charts.",
-    tech: ["Next.js", "TypeScript", "Recharts", "Supabase"],
-    image: "linear-gradient(to bottom right, #f59e0b, #ef4444)",
-    live: "#",
-    github: "#",
+    tech: ["React", "MUI", "TypeScript"],
+    image: shopyKart,
+    live: "https://myshopykart.netlify.app",
+    github: "https://github.com/sasikumar2611/shoppingCart",
   },
-  {
-    title: "Portfolio 2023",
-    description:
-      "My previous portfolio showcase featuring 3D interactions and WebGL effects.",
-    tech: ["Three.js", "React Three Fiber", "GSAP"],
-    image: "linear-gradient(to bottom right, #10b981, #06b6d4)",
-    live: "#",
-    github: "#",
-  },
+  
 ];
 
 const Work = () => {
